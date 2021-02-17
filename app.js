@@ -102,21 +102,4 @@ let timeSlots = [
     allStands[i].render();
   }
 
-  const tableElem = document.createElement('table');
-  profileContainer.appendChild(tableElem);
-
-  const row1 = document.createElement('tr');
-  const row2 = document.createElement('tr');
-
-  tableElem.appendChild(row1);
-  tableElem.appendChild(row2);
-
-  const sixElem = document.createElement('th');
-  row1.appendChild(sixElem);
-  sixElem.textContent = '6:00am';
-
-  const sixDataElem = document.createElement('td');
-  row2.appendChild(sixDataElem);
-  sixDataElem.textContent = this.cookieSales;
-
   
