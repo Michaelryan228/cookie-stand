@@ -25,335 +25,98 @@ let timeSlots = [
     '7pm',
   ];
   
-  
   function randomInRange(min, max) {
   
     let range = max - min;
-  
-    // return an integer between min and max
-    return Math.floor(Math.random() * (range + 1)) + min;
-  }
-  
-  
-  let seattle = {
-    id: 'seattle',
-    location: 'Seattle',
-    minCustomersPerHour: 23,
-    maxCustomersPerHour: 65,
-    avgCookiesPerSale: 6.3,
-    cookieSales: [],
-    generateCustomersPerHour: function () {
-      let customersPerHour = randomInRange(this.minCustomersPerHour, this.maxCustomersPerHour);
-      return customersPerHour;
-    },
-    calcCookiesEachHour: function () {
-      let customersPerHour = this.generateCustomersPerHour();
-      let cookiesEachHour = customersPerHour * this.avgCookiesPerSale;
-  
-      return Math.ceil(cookiesEachHour);
-    },
-    simulateCookieSales: function() {
-      // calculate each hour's cookie sales and store in this.cookieSales
-    },
-    render: function () {
-
-      let storeTotal= 0;
-  
-      this.simulateCookieSales();
-  
-      let ulElem = document.getElementById(this.id);
-  
-      for (let i = 0; i < timeSlots.length; i++) {
-
-        let certainCookie= this.calcCookiesEachHour();
-        storeTotal+= certainCookie        
-  
-        let liElem = document.createElement('li');
-  
-        // TODO: grab from this.cookieSales
-        // liElem.textContent = timeSlots[i] + ': ' + this.cookieSales[i] + ' cookies';
-  
-        liElem.textContent = timeSlots[i] + ': ' + this.calcCookiesEachHour() + ' cookies';
-  
-        ulElem.appendChild(liElem);
-      }
-  
-      // TODO: total sales for location
-      let totalElem = document.createElement('li');
-      totalElem.textContent = 'Total: ' + storeTotal + ' cookies';
-      ulElem.appendChild(totalElem);  
-    },
-  };
-  
-  
-  
-  // render locations
-  seattle.render();
-
-  let tokyo = {
-    id: 'tokyo',
-    location: 'Tokyo',
-    minCustomersPerHour: 3,
-    maxCustomersPerHour: 24,
-    avgCookiesPerSale: 1.2,
-    cookieSales: [],
-    generateCustomersPerHour: function () {
-      let customersPerHour = randomInRange(this.minCustomersPerHour, this.maxCustomersPerHour);
-      return customersPerHour;
-    },
-    calcCookiesEachHour: function () {
-      let customersPerHour = this.generateCustomersPerHour();
-      let cookiesEachHour = customersPerHour * this.avgCookiesPerSale;
-  
-      return Math.ceil(cookiesEachHour);
-    },
-    simulateCookieSales: function() {
-      // calculate each hour's cookie sales and store in this.cookieSales
-    },
-    render: function () {
-
-      let storeTotal= 0;
-  
-      this.simulateCookieSales();
-  
-      let ulElem = document.getElementById(this.id);
-  
-      for (let i = 0; i < timeSlots.length; i++) {
-
-        let certainCookie= this.calcCookiesEachHour();
-        storeTotal+= certainCookie        
-  
-        let liElem = document.createElement('li');
-  
-        // TODO: grab from this.cookieSales
-        // liElem.textContent = timeSlots[i] + ': ' + this.cookieSales[i] + ' cookies';
-  
-        liElem.textContent = timeSlots[i] + ': ' + this.calcCookiesEachHour() + ' cookies';
-  
-        ulElem.appendChild(liElem);
-      }
-  
-      // TODO: total sales for location
-      let totalElem = document.createElement('li');
-      totalElem.textContent = 'Total: ' + storeTotal + ' cookies';
-      ulElem.appendChild(totalElem);  
-    },
-  };
-  
-  
-  
-  // render locations
-  tokyo.render();
-
-  let dubai = {
-    id: 'dubai',
-    location: 'Dubai',
-    minCustomersPerHour: 11,
-    maxCustomersPerHour: 38,
-    avgCookiesPerSale: 3.7,
-    cookieSales: [],
-    generateCustomersPerHour: function () {
-      let customersPerHour = randomInRange(this.minCustomersPerHour, this.maxCustomersPerHour);
-      return customersPerHour;
-    },
-    calcCookiesEachHour: function () {
-      let customersPerHour = this.generateCustomersPerHour();
-      let cookiesEachHour = customersPerHour * this.avgCookiesPerSale;
-  
-      return Math.ceil(cookiesEachHour);
-    },
-    simulateCookieSales: function() {
-      // calculate each hour's cookie sales and store in this.cookieSales
-    },
-    render: function () {
-
-      let storeTotal= 0;
-  
-      this.simulateCookieSales();
-  
-      let ulElem = document.getElementById(this.id);
-  
-      for (let i = 0; i < timeSlots.length; i++) {
-
-        let certainCookie= this.calcCookiesEachHour();
-        storeTotal+= certainCookie
-
-        let liElem = document.createElement('li');
-  
-        // TODO: grab from this.cookieSales
-        // liElem.textContent = timeSlots[i] + ': ' + this.cookieSales[i] + ' cookies';
-  
-        liElem.textContent = timeSlots[i] + ': ' + this.calcCookiesEachHour() + ' cookies';
-  
-        ulElem.appendChild(liElem);
-      }
-  
-      // TODO: total sales for location
-      let totalElem = document.createElement('li');
-      totalElem.textContent = 'Total: ' + storeTotal + ' cookies';
-      ulElem.appendChild(totalElem); 
-    },
-  };
-  
-  
-  
-  // render locations
-  dubai.render();
-
-  let paris = {
-    id: 'paris',
-    location: 'Paris',
-    minCustomersPerHour: 20,
-    maxCustomersPerHour: 38,
-    avgCookiesPerSale: 2.3,
-    cookieSales: [],
-    generateCustomersPerHour: function () {
-      let customersPerHour = randomInRange(this.minCustomersPerHour, this.maxCustomersPerHour);
-      return customersPerHour;
-    },
-    calcCookiesEachHour: function () {
-      let customersPerHour = this.generateCustomersPerHour();
-      let cookiesEachHour = customersPerHour * this.avgCookiesPerSale;
-  
-      return Math.ceil(cookiesEachHour);
-    },
-    simulateCookieSales: function() {
-      // calculate each hour's cookie sales and store in this.cookieSales
-    },
-    render: function () {
-
-      let storeTotal= 0;
-  
-      this.simulateCookieSales();
-  
-      let ulElem = document.getElementById(this.id);
-  
-      for (let i = 0; i < timeSlots.length; i++) {
-
-        let certainCookie= this.calcCookiesEachHour();
-        storeTotal+= certainCookie        
-  
-        let liElem = document.createElement('li');
-  
-        // TODO: grab from this.cookieSales
-        // liElem.textContent = timeSlots[i] + ': ' + this.cookieSales[i] + ' cookies';
-  
-        liElem.textContent = timeSlots[i] + ': ' + this.calcCookiesEachHour() + ' cookies';
-  
-        ulElem.appendChild(liElem);
-      }
-  
-      // TODO: total sales for location
-      let totalElem = document.createElement('li');
-      totalElem.textContent = 'Total: ' + storeTotal + ' cookies';
-      ulElem.appendChild(totalElem);
-    },
-  };
-  
-  
-  
-  // render locations
-  paris.render();
-
-  let lima = {
-    id: 'lima',
-    location: 'Lima',
-    minCustomersPerHour: 2,
-    maxCustomersPerHour: 16,
-    avgCookiesPerSale: 4.6,
-    cookieSales: [],
-    generateCustomersPerHour: function () {
-      let customersPerHour = randomInRange(this.minCustomersPerHour, this.maxCustomersPerHour);
-      return customersPerHour;
-    },
-    calcCookiesEachHour: function () {
-      let customersPerHour = this.generateCustomersPerHour();
-      let cookiesEachHour = customersPerHour * this.avgCookiesPerSale;
-  
-      return Math.ceil(cookiesEachHour);
-    },
-    simulateCookieSales: function() {
-      // calculate each hour's cookie sales and store in this.cookieSales
-    },
-    render: function () {
       
-      let storeTotal= 0;
+       return Math.floor(Math.random() * (range + 1)) + min;
+  } 
 
-      this.simulateCookieSales();
-  
-      let ulElem = document.getElementById(this.id);
-  
-      for (let i = 0; i < timeSlots.length; i++) {
-        
-        let certainCookie= this.calcCookiesEachHour();
-        storeTotal+= certainCookie
+      
+      
+      
+  function CookieStand (id, location, min, max, avg, cookieSales = []) {
+    this.id = id;
+    this.location = location;
+    this.minCustomersPerHour = min;
+    this.maxCustomersPerHour = max;
+    this.avgCookiesPerSale = avg;
+    this.storeTotal = 0;
+    this.cookieSales = cookieSales;
+  }    
 
-        let liElem = document.createElement('li');
-  
-        // TODO: grab from this.cookieSales
-        // liElem.textContent = timeSlots[i] + ': ' + this.cookieSales[i] + ' cookies';
-  
-        liElem.textContent = timeSlots[i] + ': ' + certainCookie + ' cookies';
-  
-        ulElem.appendChild(liElem);
-      }
-  
-      // TODO: total sales for location
-      let totalElem = document.createElement('li');
-      totalElem.textContent = 'Total: ' + storeTotal + ' cookies';
-      ulElem.appendChild(totalElem);
-    },
-  };
-  
-  
-  
-  // render locations
-  lima.render();
+  let standSeattle = new CookieStand ('seattle', 'Seattle Stand', 23, 65, 6.3);
+  let standTokyo = new CookieStand ('tokyo', 'Tokyo Stand', 3, 24, 1.2);
+  let standDubai = new CookieStand ('dubai', 'Dubai Stand', 11, 38, 3.7);
+  let standParis = new CookieStand ('paris', 'Paris Stand', 20, 38, 2.3);
+  let standLima = new CookieStand ('lima', 'Lima Stand',2, 16, 4.6);
+  let allStands = [standSeattle, standTokyo, standDubai, standParis, standLima];
 
-  // let total = {
-  //   id: 'total',
-  //   location: 'Total',
-  //   minCustomersPerHour: 59,
-  //   maxCustomersPerHour: 181,
-  //   avgCookiesPerSale: 18.1,
-  //   cookieSales: [],
-  //   generateCustomersPerHour: function () {
-  //     let customersPerHour = randomInRange(this.minCustomersPerHour, this.maxCustomersPerHour);
-  //     return customersPerHour;
-  //   },
-  //   calcCookiesEachHour: function () {
-  //     let customersPerHour = this.generateCustomersPerHour();
-  //     let cookiesEachHour = customersPerHour * this.avgCookiesPerSale;
+  CookieStand.prototype.generateCustomersPerHour = function() {
+    let customersPerHour = randomInRange(this.minCustomersPerHour, this.maxCustomersPerHour);
+    console.log(customersPerHour);
+    return customersPerHour;
+  }
+    for (let i = 0; i < allStands.length; i++) {
+      allStands[i].generateCustomersPerHour();
+    }
+      
+    
+
+  CookieStand.prototype.calcCookiesEachHour = function() {
+   let customersPerHour = this.generateCustomersPerHour();
+   let cookiesEachHour = customersPerHour * this.avgCookiesPerSale;
+   console.log(Math.ceil(cookiesEachHour));
+   return Math.ceil(cookiesEachHour);
+  }
+
+  CookieStand.prototype.simulateCookieSales = function() {
+    for (let i = 0; i < timeSlots.length; i++) {
+      let certainCookie = this.calcCookiesEachHour();
+      this.cookieSales.push(certainCookie);
+      this.storeTotal += certainCookie;       
+    }
+    this.cookieSales.push(this.storeTotal);
+
+  }
+
   
-  //     return Math.ceil(cookiesEachHour);
-  //   },
-  //   simulateCookieSales: function() {
-  //     // calculate each hour's cookie sales and store in this.cookieSales
-  //   },
-  //   render: function () {
+
+  CookieStand.prototype.render = function(){
+    let ulElem = document.getElementById(this.id);
+    for (let i = 0; i < timeSlots.length; i++) {
+      let liElem = document.createElement('li');
+      console.log(this.cookieSales, 'cookie sales from render function')
+      liElem.textContent = timeSlots[i] + ' : ' + this.cookieSales[i] + ' cookies';
+      ulElem.appendChild(liElem);
+    }
+    let liElem = document.createElement('li');
+    liElem.textContent = 'Total' + ' : ' + this.storeTotal + ' cookies';
+    ulElem.appendChild(liElem);
+    console.log(this.avgCookiesPerSale);
+  }
+
+  for (let i = 0; i < allStands. length; i++) {
+    allStands[i].calcCookiesEachHour();
+    allStands[i].simulateCookieSales();
+    allStands[i].render();
+  }
+
+  const tableElem = document.createElement('table');
+  profileContainer.appendChild(tableElem);
+
+  const row1 = document.createElement('tr');
+  const row2 = document.createElement('tr');
+
+  tableElem.appendChild(row1);
+  tableElem.appendChild(row2);
+
+  const sixElem = document.createElement('th');
+  row1.appendChild(sixElem);
+  sixElem.textContent = '6:00am';
+
+  const sixDataElem = document.createElement('td');
+  row2.appendChild(sixDataElem);
+  sixDataElem.textContent = this.cookieSales;
+
   
-  //     this.simulateCookieSales();
-  
-  //     let ulElem = document.getElementById(this.id);
-  
-  //     for (let i = 0; i < timeSlots.length; i++) {
-  
-  //       let liElem = document.createElement('li');
-  
-  //       // TODO: grab from this.cookieSales
-  //       // liElem.textContent = timeSlots[i] + ': ' + this.cookieSales[i] + ' cookies';
-  
-  //       liElem.textContent = timeSlots[i] + ': ' + this.calcCookiesEachHour() + ' cookies';
-  
-  //       ulElem.appendChild(liElem);
-  //     }
-  
-  //     // TODO: total sales for location
-  
-  //   },
-  // };
-  
-  
-  
-  // // render locations
-  // total.render();
