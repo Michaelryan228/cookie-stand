@@ -23,6 +23,7 @@ let timeSlots = [
     '5pm',
     '6pm',
     '7pm',
+    'Daily Location Totals',
   ];
   
   function randomInRange(min, max) {
@@ -71,7 +72,7 @@ let timeSlots = [
   }
 
   CookieStand.prototype.simulateCookieSales = function() {
-    for (let i = 0; i < timeSlots.length; i++) {
+    for (let i = 0; i < timeSlots.length -1; i++) {
       let certainCookie = this.calcCookiesEachHour();
       this.cookieSales.push(certainCookie);
       this.storeTotal += certainCookie;       
@@ -80,21 +81,37 @@ let timeSlots = [
 
   }
 
-  
-
-  CookieStand.prototype.render = function(){
-    let ulElem = document.getElementById(this.id);
-    for (let i = 0; i < timeSlots.length; i++) {
-      let liElem = document.createElement('li');
-      console.log(this.cookieSales, 'cookie sales from render function')
-      liElem.textContent = timeSlots[i] + ' : ' + this.cookieSales[i] + ' cookies';
-      ulElem.appendChild(liElem);
+  CookieStand.prototype.render =  function(){
+    const salesRow = document.createElement('tr');
+    const tableElem = document.getElementById('table');
+    tableElem.appendChild(salesRow);
+    const tableCell = document.createElement('td');
+    salesRow.appendChild(tableCell);
+    tableCell.textContent = this.location;
+    for (let i = 0; i < this.cookieSales.length; i++) {
+      const cookiesElem = document.createElement('td');
+      cookiesElem.textContent = this.cookieSales[i];
+      salesRow.appendChild(cookiesElem);
     }
-    let liElem = document.createElement('li');
-    liElem.textContent = 'Total' + ' : ' + this.storeTotal + ' cookies';
-    ulElem.appendChild(liElem);
-    console.log(this.avgCookiesPerSale);
+
   }
+
+  function renderHeaderRow(){
+    const tableElem = document.getElementById('table');
+    const rowOne = document.createElement('tr');
+    tableElem.appendChild(rowOne);
+    const emptyTh = document.createElement('th');
+    rowOne.appendChild(emptyTh);
+    for (let i = 0; i < timeSlots.length; i++) {
+      const timeHeaderElem = document.createElement('th');
+      timeHeaderElem.textContent = timeSlots[i];
+      rowOne.appendChild(timeHeaderElem);
+      timeHeaderElem.setAttribute('scope', 'col');
+      
+    }
+  }
+
+renderHeaderRow();
 
   for (let i = 0; i < allStands. length; i++) {
     allStands[i].calcCookiesEachHour();
