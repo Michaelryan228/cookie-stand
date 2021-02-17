@@ -111,7 +111,7 @@ let timeSlots = [
     }
   }
 
-renderHeaderRow();
+  renderHeaderRow();
 
   for (let i = 0; i < allStands. length; i++) {
     allStands[i].calcCookiesEachHour();
@@ -119,4 +119,28 @@ renderHeaderRow();
     allStands[i].render();
   }
 
+function displayFooter(){
+  const tableElem = document.getElementById('table');
+  const tableRowElem = document.createElement('tr');
+  tableElem.appendChild(tableRowElem);
   
+  const totalsHeaderElem = document.createElement('th');
+  totalsHeaderElem.setAttribute('scope','row');
+  totalsHeaderElem.textContent = 'Totals';
+  tableRowElem.append(totalsHeaderElem);
+
+  // double for loop shown in class
+
+  for(let i = 0; i < timeSlots.length; i++){
+    let cookieTotalHour = 0;
+    for(let j = 0; j < allStands.length; j++){
+      cookieTotalHour += allStands[j].cookieSales[i];
+    }
+    const cookieTd = document.createElement('td');
+    cookieTd.textContent = cookieTotalHour;
+    tableRowElem.appendChild(cookieTd);
+  }
+
+}
+
+displayFooter();
