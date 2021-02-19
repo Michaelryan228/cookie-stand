@@ -102,12 +102,12 @@ let timeSlots = [
     tableElem.appendChild(rowOne);
     const emptyTh = document.createElement('th');
     rowOne.appendChild(emptyTh);
+
     for (let i = 0; i < timeSlots.length; i++) {
       const timeHeaderElem = document.createElement('th');
       timeHeaderElem.textContent = timeSlots[i];
       rowOne.appendChild(timeHeaderElem);
-      timeHeaderElem.setAttribute('scope', 'col');
-      
+      timeHeaderElem.setAttribute('scope', 'col');      
     }
   }
 
@@ -144,3 +144,38 @@ function displayFooter(){
 }
 
 displayFooter();
+
+let myForm = document.getElementById('new-store-form')
+myForm.addEventListener("submit", submitHandler)
+
+function submitHandler(event) {
+  event.preventDefault();
+   
+  let id = event.target.storeName.value;
+  let minCustomers = event.target.minCustomers.value;
+  let maxCustomers = event.target.maxCustomers.value;
+  let avgCookies = event.target.avgCookies.value;
+  let name = id + ' Stand'
+  let newStand = new CookieStand (id, name, minCustomers, maxCustomers, avgCookies, cookieSales = []);
+  allStands.push(newStand);
+  const tableElem = document.getElementById('table');
+  tableElem.innerHTML = "";
+  renderHeaderRow();
+  newStand.calcCookiesEachHour();
+  newStand.simulateCookieSales();
+
+
+for (let i = 0; i < allStands.length; i++) {
+  allStands[i].render();
+}
+
+displayFooter();
+
+
+
+
+  // console.log(parseInt(event.target.minCustomers.value) + parseInt(event.target.maxCustomers.value))
+}
+
+const form = document.getElementById('new-store-form');
+
