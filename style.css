@@ -20,3 +20,73 @@
     background-color: #4CAF50;
     color: white;
   }
+
+  button {
+    color:greenyellow;
+    background-color: grey;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  #sales {
+    text-align: center;
+  }
+
+  #home {
+    text-align: center;
+  }
+
+  #chinook {
+    margin-left: 30%;
+    margin-left: 30%;
+  }
+
+  #cutter {
+    margin-left: 40%;
+    margin-left: 40%;
+  }
+
+  #family {
+    margin-left: 20%;
+    margin-left: 20%;
+  }
+  
+  #fish {
+    margin-left: 40%;
+    margin-left: 40%;
+  }
+
+  #frosted {
+    margin-left: 40%;
+    margin-left: 40%;
+  }
+
+  #salmon {
+    margin-left: 20%;
+    margin-left: 20%;
+  }
+
+  #shirt {
+    margin-left: 40%;
+    margin-left: 40%;
+  }
+
+  h2 {
+    text-align: center;
+    color:darkgreen;
+  }
+
+  #home-text {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: salmon;
+  }
+
+body {
+  background-color:lightgrey;
+}
+
+h1 {
+  color: darkgreen;
+}
